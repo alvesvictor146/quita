@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quitta | Inteligência para Negociar e Revisão de Juros Abusivos</title>
+    <meta name="description" content="Reduza em até 80% suas parcelas sem processo judicial. Especialistas em revisão de empréstimos, cartão de crédito, busca e apreensão de veículos e dívidas empresariais." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Quitta — Inteligência para Negociar" />
+    <meta property="og:description" content="Descubra o valor real da sua parcela sem juros abusivos. Simulação 100% gratuita." />
+    <meta property="og:type" content="website" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="light-theme">
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+      <div class="cursor-dot"></div>
+      <div class="cursor-ring"></div>
+      <div class="cursor-label"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Background Subtle Physics Canvas -->
+    <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+    <!-- Header / Navbar -->
+    <header class="site-header" id="header">
+      <div class="container header-container">
+        <a href="#" class="brand-logo" aria-label="Quitta Home">
+          <!-- Logo SVG com Q Check e Wordmark Quitta -->
+          <svg class="logo-svg" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="logo-symbol">
+              <path class="q-ring" d="M38 12C24.745 12 14 22.745 14 36C14 49.255 24.745 60 38 60C43.5 60 48.6 58.1 52.7 55L45.5 47.8C43.3 49.2 40.7 50 38 50C30.268 50 24 43.732 24 36C24 28.268 30.268 22 38 22C45.732 22 52 28.268 52 36C52 38.6 51.3 41 50 43.1L57.5 50.6C60.3 46.5 62 41.5 62 36C62 22.745 51.255 12 38 12Z" fill="#0B1F3F"/>
+              <path class="q-check" d="M36 41L47 52L68 28" stroke="#1CC7A6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="82" y="44" font-family="'Outfit', sans-serif" font-weight="800" font-size="36" fill="#0B1F3F" letter-spacing="-1">quitta</text>
+            <text x="83" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="9" fill="#1CC7A6" letter-spacing="2.5">INTELIGÊNCIA PARA NEGOCIAR</text>
+          </svg>
+        </a>
+
+        <nav class="nav-links" id="nav-menu">
+          <a href="#como-funciona" class="nav-link">Como Funciona</a>
+          <a href="#servicos" class="nav-link">Serviços</a>
+          <a href="#simulador" class="nav-link">Calculadora</a>
+          <a href="#veiculos" class="nav-link">Veículos</a>
+          <a href="#depoimentos" class="nav-link">Resultados</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20an%C3%A1lise%20gratuita%20do%20meu%20contrato." target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic-btn" id="header-cta-btn">
+            <span class="btn-text">Falar com Especialista</span>
+            <span class="btn-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section class="hero-section" id="hero">
+        <canvas id="hero-particles-canvas" class="hero-particles-canvas" aria-hidden="true"></canvas>
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-container">
+          <div class="hero-content">
+            <div class="hero-badge badge-bounce">
+              <span class="badge-dot"></span>
+              <span>Leva menos de 1 minuto e pode transformar sua vida financeira</span>
+            </div>
+
+            <h1 class="hero-title">
+              Acordos hoje. <br />
+              <span class="text-gradient">Mais conquistas sempre.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Faça sua simulação gratuita e descubra qual deveria ser o <strong>valor real da sua parcela sem juros abusivos</strong>. Reduza em até 80% sua dívida de forma amigável, segura e sem burocracia.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#simulador" class="btn btn-primary btn-lg magnetic-btn" id="hero-simular-btn">
+                <span class="btn-text">Fazer simulação gratuita agora</span>
+                <span class="btn-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+              </a>
+
+              <button type="button" class="btn btn-secondary btn-lg magnetic-btn btn-watch-video" id="hero-video-trigger" aria-label="Assistir ao vídeo de apresentação">
+                <span class="video-play-icon-sm">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </span>
+                <span class="btn-text">Assistir Vídeo (1 min)</span>
+              </button>
+            </div>
+
+            <!-- Trust Highlights -->
+            <div class="hero-trust-row">
+              <div class="trust-item">
+                <span class="trust-icon">✓</span>
+                <span>Sem custo inicial de análise</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-icon">✓</span>
+                <span>Negociação 100% amigável</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-icon">✓</span>
+                <span>Sem risco de processo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual: 3D Holographic Card com Player de Vídeo Integrado -->
+          <div class="hero-visual" id="hero-visual-card">
+            <div class="hero-card-tilt tilt-element" data-tilt-max="12">
+              <div class="hero-image-wrapper">
+                <img src="/assets/hero_person.jpg" alt="Cliente Quitta realizada após quitação da dívida" class="hero-img" id="hero-media-cover" />
+                <div class="hero-image-overlay"></div>
+
+                <!-- Botão Central de Play no Card com Efeito Pulsante -->
+                <button type="button" class="hero-card-play-btn" id="hero-card-play-btn" aria-label="Reproduzir vídeo da Quitta">
+                  <div class="play-btn-sonar"></div>
+                  <div class="play-btn-sonar sonar-delayed"></div>
+                  <div class="play-btn-core">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#06132A"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                  </div>
+                  <span class="play-btn-label">Ver Apresentação</span>
+                </button>
+
+                <!-- Tag Holográfica de Vídeo HD -->
+                <div class="video-hd-badge">
+                  <span class="hd-live-dot"></span>
+                  <span>VÍDEO EXPLICATIVO • 4K</span>
+                </div>
+              </div>
+
+              <!-- Floating Micro-Interaction Pills com física e profundidade -->
+              <div class="floating-pill pill-top-left float-anim-1">
+                <div class="pill-icon teal-pulse">✓</div>
+                <div class="pill-text">
+                  <span class="pill-title">Contrato Auditado</span>
+                  <span class="pill-sub">87% de juros abusivos removidos</span>
+                </div>
+              </div>
+
+              <div class="floating-pill pill-bottom-right float-anim-2">
+                <div class="pill-icon navy-glow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2EE6C0" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
+                <div class="pill-text">
+                  <span class="pill-highlight">-R$ 1.240/mês</span>
+                  <span class="pill-sub">Nova parcela negociada</span>
+                </div>
+              </div>
+
+              <!-- Glow border follower -->
+              <div class="card-glow-follower"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL DE VÍDEO CINEMATOGRÁFICO FUTURISTA -->
+      <div id="video-modal" class="video-modal" aria-hidden="true" role="dialog" aria-label="Vídeo institucional Quitta">
+        <div class="video-modal-backdrop" id="video-modal-close-backdrop"></div>
+        <div class="video-modal-container">
+          <button type="button" class="video-modal-close-btn" id="video-modal-close" aria-label="Fechar vídeo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          <div class="video-player-frame">
+            <div class="video-cyber-border top-left"></div>
+            <div class="video-cyber-border top-right"></div>
+            <div class="video-cyber-border bottom-left"></div>
+            <div class="video-cyber-border bottom-right"></div>
+            <div class="video-responsive-wrap">
+              <video id="quitta-main-video" controls playsinline poster="/assets/hero_person.jpg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-working-on-a-computer-43389-large.mp4" type="video/mp4">
+                Seu navegador não suporta o formato de vídeo.
+              </video>
+            </div>
+            <div class="video-modal-footer">
+              <div class="video-footer-info">
+                <h4>Quitta — Inteligência para Negociar</h4>
+                <p>Veja em 60 segundos como revisamos contratos bancários sem burocracia e sem processo judicial.</p>
+              </div>
+              <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20e%20gostaria%20de%20iniciar%20minha%20an%C3%A1lise." target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic-btn">
+                <span>Falar com Negociador</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MARQUEE INFINITO COM VELOCIDADE DINÂMICA -->
+      <section class="marquee-section" id="marquee-banner" aria-label="Aviso legal ao consumidor">
+        <div class="marquee-track" id="marquee-track">
+          <div class="marquee-content">
+            <span class="marquee-item"><span class="marquee-dot">●</span> CHEGA DE JUROS ABUSIVOS!</span>
+            <span class="marquee-item"><span class="marquee-dot">●</span> TODO CONSUMIDOR TEM DIREITO À REVISÃO DE CONTRATO</span>
+            <span class="marquee-item"><span class="marquee-dot">●</span> ANÁLISE EXTRAJUDICIAL SEM PROCESSO</span>
+            <span class="marquee-item"><span class="marquee-dot">●</span> DESCONTOS DE ATÉ 80% NA QUITAÇÃO</span>
+            <span class="marquee-item"><span class="marquee-dot">●</span> QUITTA: INTELIGÊNCIA PARA NEGOCIAR</span>
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+            <span class="marquee-item"><span class="marquee-dot">●</span> CHEGA DE JUROS ABUSIVOS!</span>
+            <span class="marquee-item"><span class="marquee-dot">●</span> TODO CONSUMIDOR TEM DIREITO À REVISÃO DE CONTRATO</span>
+            <span class="marquee-item"><span class="marquee-dot">●</span> ANÁLISE EXTRAJUDICIAL SEM PROCESSO</span>
+            <span class="marquee-item"><span class="marquee-dot">●</span> DESCONTOS DE ATÉ 80% NA QUITAÇÃO</span>
+            <span class="marquee-item"><span class="marquee-dot">●</span> QUITTA: INTELIGÊNCIA PARA NEGOCIAR</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROVA SOCIAL / STATS DE IMPACTO -->
+      <section class="stats-section" id="stats">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card tilt-element">
+              <div class="stat-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1CC7A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <div class="stat-number-wrap">
+                <span class="stat-prefix">+R$</span>
+                <span class="stat-counter" data-target="113">0</span>
+                <span class="stat-suffix">Milhões</span>
+              </div>
+              <p class="stat-label">Economizados pelos nossos clientes em contratos revistos</p>
+            </div>
+
+            <div class="stat-card tilt-element">
+              <div class="stat-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1CC7A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <div class="stat-number-wrap">
+                <span class="stat-prefix">+</span>
+                <span class="stat-counter" data-target="2347">0</span>
+              </div>
+              <p class="stat-label">Famílias e empresas atendidas com contratos renegociados</p>
+            </div>
+
+            <div class="stat-card tilt-element">
+              <div class="stat-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1CC7A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <div class="stat-number-wrap">
+                <span class="stat-counter" data-target="98.4" data-decimals="1">0</span>
+                <span class="stat-suffix">%</span>
+              </div>
+              <p class="stat-label">Taxa de sucesso em acordos extrajudiciais diretos</p>
+            </div>
+
+            <div class="stat-card tilt-element">
+              <div class="stat-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1CC7A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="stat-number-wrap">
+                <span class="stat-prefix">Até </span>
+                <span class="stat-counter" data-target="80">0</span>
+                <span class="stat-suffix">%</span>
+              </div>
+              <p class="stat-label">De redução média sobre juros e multas abusivas acumuladas</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO IMPACTO: O QUE O BANCO NÃO TE CONTOU -->
+      <section class="truth-section" id="verdade">
+        <div class="container truth-container">
+          <div class="truth-card-spotlight spotlight-card">
+            <div class="truth-header">
+              <span class="tag-pill">Alerta ao Consumidor</span>
+              <h2 class="section-title">
+                O que o banco não te contou pode estar custando a sua tranquilidade.
+              </h2>
+              <p class="truth-lead">
+                Enquanto isso, a parcela pesa, a renda encurta e a sua vida fica travada. Estima-se que <strong>8 em cada 10 contratos tenham alguma irregularidade grave</strong> na cobrança de juros. E o pior: isso passa completamente despercebido.
+              </p>
+            </div>
+
+            <div class="truth-facts-grid">
+              <div class="fact-box">
+                <div class="fact-check-icon">✓</div>
+                <div class="fact-content">
+                  <h3>Mais de 70% dos brasileiros endividados</h3>
+                  <p>O motivo vai muito além da gestão financeira: as armadilhas contratuais são desenhadas para tornar as parcelas impagáveis a longo prazo.</p>
+                </div>
+              </div>
+
+              <div class="fact-box">
+                <div class="fact-check-icon">✓</div>
+                <div class="fact-content">
+                  <h3>Cartões de crédito com juros de 400% a.a.</h3>
+                  <p>Uma fatura parcelada vira uma bola de neve incontrolável por causa do anatocismo (cobrança ilegal de juros sobre juros).</p>
+                </div>
+              </div>
+
+              <div class="fact-box">
+                <div class="fact-check-icon">✓</div>
+                <div class="fact-content">
+                  <h3>Financiamentos que dobram o valor do veículo</h3>
+                  <p>Cláusulas com taxas embutidas, seguros não solicitados e tarifas administrativas ilegais disfarçadas na parcela mensal.</p>
+                </div>
+              </div>
+
+              <div class="fact-box">
+                <div class="fact-check-icon">✓</div>
+                <div class="fact-content">
+                  <h3>Taxas disfarçadas e cobrança cumulativa</h3>
+                  <p>Encargos sobre encargos que impedem a amortização real da sua dívida, gerando saldo devedor perpétuo.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="truth-footer-cta">
+              <p>Você não precisa carregar essa conta injusta. Existe um caminho legal e seguro.</p>
+              <a href="#como-funciona" class="btn btn-secondary magnetic-btn">
+                <span>Ver como funciona a auditoria</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMO FUNCIONA: SCANNER DE CONTRATO + 4 ETAPAS -->
+      <section class="how-it-works-section" id="como-funciona">
+        <div class="container">
+          <div class="section-badge-center">
+            <span class="badge-dot"></span>
+            <span>Te ajudaremos a mudar sua vida financeira</span>
+          </div>
+          <h2 class="section-heading text-center">
+            Como Funciona a Revisão de <span class="text-gradient">Juros Abusivos?</span>
+          </h2>
+          <p class="section-subheading text-center">
+            Na <strong>Quitta</strong>, realizamos uma perícia matemática e jurídica minuciosa no seu contrato. Veja o que identificamos e as 4 etapas até a sua tranquilidade:
+          </p>
+
+          <div class="scanner-and-steps-grid">
+            <!-- Coluna Esquerda: Scanner de Auditoria Holográfico -->
+            <div class="scanner-column">
+              <div class="scanner-preview-card spotlight-card">
+                <div class="scanner-image-container">
+                  <img src="/assets/scanner_contract.jpg" alt="Auditoria Holográfica de Contrato Quitta" class="scanner-img" />
+                  <div class="laser-scanner-line" id="laser-line"></div>
+                </div>
+
+                <div class="scanner-findings">
+                  <h4 class="findings-title">O que a Quitta analisa detalhadamente:</h4>
+                  <ul class="findings-list">
+                    <li>
+                      <span class="finding-chevron">››</span>
+                      <span><strong>Juros contratuais:</strong> se estão acima da taxa média de mercado divulgada pelo Banco Central.</span>
+                    </li>
+                    <li>
+                      <span class="finding-chevron">››</span>
+                      <span><strong>Capitalização indevida:</strong> anatocismo disfarçado (juros compostos não autorizados por lei).</span>
+                    </li>
+                    <li>
+                      <span class="finding-chevron">››</span>
+                      <span><strong>Taxas escondidas:</strong> tarifas ilegais como TAC (Abertura de Crédito), TEC e seguros embutidos.</span>
+                    </li>
+                    <li>
+                      <span class="finding-chevron">››</span>
+                      <span><strong>Encargos cumulativos:</strong> comissão de permanência somada a multas moratórias abusivas.</span>
+                    </li>
+                  </ul>
+                  
+                  <div class="scanner-callout">
+                    <p>Nosso time jurídico avalia tudo isso <strong>sem custo inicial</strong> e traça o plano ideal para <strong>reduzir sua dívida em até 80%</strong> — de forma amigável, segura e sem processo judicial.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna Direita: As 4 Etapas com Timeline Dinâmica -->
+            <div class="steps-column">
+              <div class="step-card spotlight-card" data-step="1">
+                <div class="step-number-tag">Etapa 01</div>
+                <div class="step-header">
+                  <div class="step-check-box">✓</div>
+                  <h3 class="step-title">Perícia Contratual Gratuita</h3>
+                </div>
+                <p class="step-desc">
+                  Fazemos uma auditoria completa no seu contrato para descobrir todas as abusividades, taxas ilegais e cobrar o valor que você realmente deve pagar.
+                </p>
+              </div>
+
+              <div class="step-card spotlight-card" data-step="2">
+                <div class="step-number-tag">Etapa 02</div>
+                <div class="step-header">
+                  <div class="step-check-box">✓</div>
+                  <h3 class="step-title">Notificação Oficial ao Banco</h3>
+                </div>
+                <p class="step-desc">
+                  Enviamos uma notificação extrajudicial formal à instituição financeira, informando que a partir de agora seus interesses são representados pela equipe de negociadores da Quitta.
+                </p>
+              </div>
+
+              <div class="step-card spotlight-card" data-step="3">
+                <div class="step-number-tag">Etapa 03</div>
+                <div class="step-header">
+                  <div class="step-check-box">✓</div>
+                  <h3 class="step-title">Redução e Negociação da Dívida</h3>
+                </div>
+                <p class="step-desc">
+                  Apresentamos laudos técnicos irrefutáveis que comprovam a abusividade. Nessa etapa, as instituições concedem <strong>descontos de até 80%</strong> no valor total devido.
+                </p>
+              </div>
+
+              <div class="step-card spotlight-card" data-step="4">
+                <div class="step-number-tag">Etapa 04</div>
+                <div class="step-header">
+                  <div class="step-check-box">✓</div>
+                  <h3 class="step-title">Acordo e Baixa de Restrições</h3>
+                </div>
+                <p class="step-desc">
+                  Você realiza o pagamento do valor justo negociado diretamente ao credor, recebendo a quitação definitiva e ficando <strong>100% livre de restrições no seu nome (SPC/Serasa)</strong>.
+                </p>
+              </div>
+
+              <div class="steps-cta">
+                <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20minha%20per%C3%ADcia%20contratual%20gratuita." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block magnetic-btn" id="steps-start-btn">
+                  <span>Iniciar Perícia Contratual Grátis</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVIÇOS ESPECIALIZADOS (CARDS COM SPOTLIGHT E TEXTOS CORRIGIDOS) -->
+      <section class="services-section" id="servicos">
+        <div class="container">
+          <div class="section-badge-center">
+            <span class="badge-dot"></span>
+            <span>Soluções reais para novos começos</span>
+          </div>
+          <h2 class="section-heading text-center">
+            O Que Podemos <span class="text-gradient">Resolver Hoje?</span>
+          </h2>
+          <p class="section-subheading text-center">
+            Atuação especializada nas principais modalidades de dívidas que mais sufocam pessoas físicas e jurídicas.
+          </p>
+
+          <div class="services-grid">
+            <!-- Card 1: Empréstimos Pessoais -->
+            <div class="service-card spotlight-card tilt-element">
+              <div class="service-icon-box orange-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              </div>
+              <h3 class="service-title">Empréstimos Pessoais & Consignados</h3>
+              <p class="service-description">
+                Muitos contratos escondem tarifas embutidas e juros muito acima da taxa do BACEN. Revisamos seu empréstimo, reduzimos parcelas e recuperamos valores pagos indevidamente.
+              </p>
+              <div class="service-highlight">
+                <span class="highlight-check">✓</span>
+                <span>Mais fôlego para recomeçar sem risco de negativação!</span>
+              </div>
+              <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20quero%20revisar%20meu%20Empr%C3%A9stimo%20Pessoal." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-service magnetic-btn">
+                <span>Falar com Especialista</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+
+            <!-- Card 2: Cartão de Crédito (Texto corrigido!) -->
+            <div class="service-card spotlight-card tilt-element">
+              <div class="service-icon-box teal-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              </div>
+              <h3 class="service-title">Cartão de Crédito & Rotativo</h3>
+              <p class="service-description">
+                Parcelou a fatura ou pagou o mínimo? Os juros rotativos de até 400% ao ano explodem o saldo devedor. Cortamos esses abusos e estruturamos um plano justo de quitação em valor real.
+              </p>
+              <div class="service-highlight">
+                <span class="highlight-check">✓</span>
+                <span>Alivie o peso da fatura no seu orçamento mensal!</span>
+              </div>
+              <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20quero%20revisar%20minha%20d%C3%ADvida%20de%20Cart%C3%A3o%20de%20Cr%C3%A9dito." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-service magnetic-btn">
+                <span>Falar com Especialista</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+
+            <!-- Card 3: Financiamento de Veículos (Texto corrigido!) -->
+            <div class="service-card spotlight-card tilt-element">
+              <div class="service-icon-box blue-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="8" rx="2"></rect><circle cx="7" cy="19" r="2"></circle><circle cx="17" cy="19" r="2"></circle><path d="M5 11l2-6h10l2 6"></path></svg>
+              </div>
+              <h3 class="service-title">Financiamento de Veículos</h3>
+              <p class="service-description">
+                Cobrança de taxas de cadastro, tarifas de avaliação não autorizadas e juros abusivos que fazem você pagar 2 carros e levar 1. Eliminamos o risco de busca e apreensão.
+              </p>
+              <div class="service-highlight">
+                <span class="highlight-check">✓</span>
+                <span>Mantenha seu veículo seguro e pague a parcela justa!</span>
+              </div>
+              <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20quero%20revisar%20o%20financiamento%20do%20meu%20Ve%C3%ADculo." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-service magnetic-btn">
+                <span>Falar com Especialista</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+
+            <!-- Card 4: Dívida Empresarial -->
+            <div class="service-card spotlight-card tilt-element">
+              <div class="service-icon-box purple-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
+              </div>
+              <h3 class="service-title">Dívida Empresarial & Capital de Giro</h3>
+              <p class="service-description">
+                Ajudamos sua empresa a renegociar dívidas pesadas com bancos e credores. Revisamos contratos de capital de giro, cortamos abusos e liberamos fluxo de caixa para sua operação.
+              </p>
+              <div class="service-highlight">
+                <span class="highlight-check">✓</span>
+                <span>Segurança jurídica para continuar operando com planejamento!</span>
+              </div>
+              <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20D%C3%ADvidas%20Empresariais." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-service magnetic-btn">
+                <span>Falar com Especialista</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIMULADOR INTERATIVO COM FÍSICA E CÁLCULO AO VIVO -->
+      <section class="simulator-section" id="simulador">
+        <div class="container">
+          <div class="simulator-wrapper spotlight-card">
+            <div class="simulator-header text-center">
+              <span class="tag-pill">Calculadora Interativa Quitta</span>
+              <h2 class="section-title">
+                Descubra em Segundos Quanto Você <span class="text-gradient">Deveria Estar Pagando</span>
+              </h2>
+              <p class="simulator-subtitle">
+                Arraste o valor da sua parcela atual ou da sua dívida para ver a estimativa de redução com a negociação extrajudicial.
+              </p>
+            </div>
+
+            <div class="simulator-body-grid">
+              <!-- Controles do Simulador -->
+              <div class="sim-controls">
+                <!-- Seletor do Tipo de Dívida -->
+                <div class="sim-input-group">
+                  <label class="sim-label">Qual é o tipo da sua dívida?</label>
+                  <div class="debt-type-buttons" id="debt-type-selector">
+                    <button type="button" class="type-btn active" data-type="veiculo">Veículo</button>
+                    <button type="button" class="type-btn" data-type="emprestimo">Empréstimo</button>
+                    <button type="button" class="type-btn" data-type="cartao">Cartão de Crédito</button>
+                    <button type="button" class="type-btn" data-type="empresa">Empresarial</button>
+                  </div>
+                </div>
+
+                <!-- Slider 1: Parcela Atual -->
+                <div class="sim-input-group">
+                  <div class="slider-header-row">
+                    <label for="parcela-slider" class="sim-label">Valor atual da sua parcela:</label>
+                    <span class="slider-live-value" id="parcela-display">R$ 1.800</span>
+                  </div>
+                  <div class="slider-track-wrap">
+                    <input type="range" id="parcela-slider" min="300" max="10000" step="50" value="1800" class="physics-range" />
+                  </div>
+                  <div class="slider-limits">
+                    <span>R$ 300</span>
+                    <span>R$ 10.000+</span>
+                  </div>
+                </div>
+
+                <!-- Slider 2: Parcelas Restantes -->
+                <div class="sim-input-group">
+                  <div class="slider-header-row">
+                    <label for="parcelas-qtd-slider" class="sim-label">Quantas parcelas ainda faltam?</label>
+                    <span class="slider-live-value" id="qtd-display">36x</span>
+                  </div>
+                  <div class="slider-track-wrap">
+                    <input type="range" id="parcelas-qtd-slider" min="6" max="72" step="1" value="36" class="physics-range" />
+                  </div>
+                  <div class="slider-limits">
+                    <span>6 meses</span>
+                    <span>72 meses</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resultado do Simulador com Efeito Físico e Gráfico Comparativo -->
+              <div class="sim-result-card" id="sim-result-box">
+                <div class="result-badge">Estimativa de Acordo Quitta</div>
+
+                <div class="comparison-bars">
+                  <!-- Barra Valor Atual -->
+                  <div class="bar-group">
+                    <div class="bar-label-row">
+                      <span class="bar-name">Parcela Atual com Abusos</span>
+                      <span class="bar-value bar-bad" id="res-parcela-atual">R$ 1.800,00</span>
+                    </div>
+                    <div class="bar-track">
+                      <div class="bar-fill fill-bad" style="width: 100%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Barra Valor Justo -->
+                  <div class="bar-group">
+                    <div class="bar-label-row">
+                      <span class="bar-name">Nova Parcela Estimada Quitta</span>
+                      <span class="bar-value bar-good" id="res-parcela-justa">R$ 720,00</span>
+                    </div>
+                    <div class="bar-track">
+                      <div class="bar-fill fill-good" id="bar-fill-justa" style="width: 40%;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Destaque da Economia Total -->
+                <div class="economy-summary-box">
+                  <span class="eco-tag">Economia Total Estimada</span>
+                  <div class="eco-amount" id="res-economia-total">R$ 38.880,00</div>
+                  <span class="eco-percent" id="res-percent-badge">Desconto aproximado de 60%</span>
+                </div>
+
+                <!-- Botão dinâmico com mensagem personalizada para o WhatsApp -->
+                <a href="#" id="sim-whatsapp-btn" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block btn-lg magnetic-btn">
+                  <span>Garantir Essa Redução no WhatsApp</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="sim-disclaimer">*Cálculo referencial baseado na média de redução obtida em acordos extrajudiciais pelo time Quitta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO ESPECIAL VEÍCULO: BUSCA E APREENSÃO -->
+      <section class="vehicle-shield-section" id="veiculos">
+        <div class="container">
+          <div class="vehicle-grid spotlight-card">
+            <div class="vehicle-content">
+              <div class="section-badge">
+                <span class="badge-dot badge-red"></span>
+                <span>Urgência & Proteção Jurídica</span>
+              </div>
+              <h2 class="vehicle-title">
+                Com Medo da Busca e Apreensão do Seu Veículo?
+              </h2>
+              <p class="vehicle-lead">
+                <strong>Não perca seu carro ou moto!</strong> Entenda como a Quitta atua com inteligência e estratégia preventiva para que você consiga pagar seu veículo com desconto real e sem desespero.
+              </p>
+              
+              <div class="vehicle-benefits">
+                <div class="v-benefit-item">
+                  <div class="v-icon">🛡️</div>
+                  <div>
+                    <h4>Bloqueio e Proteção Estratégica</h4>
+                    <p>Atuação ágil para prevenir e contestar medidas judiciais abusivas antes que o credor retire seu bem.</p>
+                  </div>
+                </div>
+
+                <div class="v-benefit-item">
+                  <div class="v-icon">📉</div>
+                  <div>
+                    <h4>Desconto Expressivo na Quitação</h4>
+                    <p>Negociação direta da dívida total do carro por até uma fração do saldo devedor cobrado pelo banco.</p>
+                  </div>
+                </div>
+
+                <div class="v-benefit-item">
+                  <div class="v-icon">⚡</div>
+                  <div>
+                    <h4>Simples, Rápido e Sem Burocracia</h4>
+                    <p>Atendimento humanizado do início ao fim com especialistas dedicados ao seu caso.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vehicle-action">
+                <a href="https://wa.me/5511947576346?text=URGENTE%3A%20Preciso%20proteger%20meu%20ve%C3%ADculo%20contra%20busca%20e%20apreens%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg magnetic-btn">
+                  <span>Proteger Meu Veículo Agora</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Imagem Gerada: Carro Protegido por Escudo Teal Holográfico -->
+            <div class="vehicle-visual">
+              <div class="shield-image-wrapper tilt-element">
+                <img src="/assets/vehicle_shield.jpg" alt="Veículo protegido pelo escudo jurídico Quitta" class="vehicle-shield-img" />
+                <div class="shield-pulse-ring"></div>
+                <div class="shield-tag">
+                  <span class="shield-tag-dot"></span>
+                  <span>Proteção Quitta Ativa</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROVA SOCIAL / DEPOIMENTOS REALISTAS -->
+      <section class="testimonials-section" id="depoimentos">
+        <div class="container">
+          <div class="section-badge-center">
+            <span class="badge-dot"></span>
+            <span>Pessoas · Acordos · Resultados</span>
+          </div>
+          <h2 class="section-heading text-center">
+            Histórias de Quem Voltou a <span class="text-gradient">Ter Paz Financeira</span>
+          </h2>
+          <p class="section-subheading text-center">
+            Veja relatos reais de clientes que confiaram na inteligência para negociar da Quitta.
+          </p>
+
+          <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card spotlight-card">
+              <div class="stars">★★★★★</div>
+              <p class="test-quote">
+                "Estava desesperado com as parcelas do meu carro atrasadas e o banco ameaçando busca e apreensão. A Quitta assumiu a negociação e conseguiu quitar o saldo restante de R$ 38 mil por pouco mais de R$ 11 mil. Meu carro está quitado no meu nome!"
+              </p>
+              <div class="test-author">
+                <div class="author-avatar navy-avatar">RC</div>
+                <div class="author-info">
+                  <span class="author-name">Ricardo C.</span>
+                  <span class="author-meta">Financiamento de Veículo • São Paulo, SP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card spotlight-card">
+              <div class="stars">★★★★★</div>
+              <p class="test-quote">
+                "A bola de neve do cartão de crédito me tirava o sono há dois anos. Cada mês que eu pagava o mínimo a dívida só aumentava. A perícia da Quitta provou as cobranças indevidas e conseguimos um acordo com 74% de desconto à vista."
+              </p>
+              <div class="test-author">
+                <div class="author-avatar teal-avatar">MS</div>
+                <div class="author-info">
+                  <span class="author-name">Mariana S.</span>
+                  <span class="author-meta">Dívida de Cartão de Crédito • Campinas, SP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card spotlight-card">
+              <div class="stars">★★★★★</div>
+              <p class="test-quote">
+                "Nossa empresa tinha contratos pesados de capital de giro que comprometiam todo o faturamento. O time Quitta conduziu a renegociação extrajudicial com maestria. Reduzimos o valor mensal pela metade e mantivemos o negócio rodando."
+              </p>
+              <div class="test-author">
+                <div class="author-avatar blue-avatar">FL</div>
+                <div class="author-info">
+                  <span class="author-name">Fernando L.</span>
+                  <span class="author-meta">Dívida Empresarial • São Bernardo, SP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ - PERGUNTAS FREQUENTES INTERATIVAS -->
+      <section class="faq-section" id="faq">
+        <div class="container faq-container">
+          <div class="text-center">
+            <span class="tag-pill">Tire Suas Dúvidas</span>
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <p class="section-subheading">Transparência total em cada etapa do seu processo de renegociação.</p>
+          </div>
+
+          <div class="faq-accordion" id="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Existe algum custo inicial para analisar o meu contrato?</span>
+                <span class="faq-arrow">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Não! A análise prévia e a perícia matemática do seu contrato são 100% gratuitas. Nossos especialistas só avançam após apresentar um parecer detalhado com a estimativa real de redução da sua dívida.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Vou precisar entrar com processo na Justiça?</span>
+                <span class="faq-arrow">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Na grande maioria dos casos, não! A Quitta é especialista em <strong>negociação extrajudicial</strong>. Apresentamos laudos técnicos diretamente aos comitês de crédito dos bancos, obtendo descontos amigáveis de forma muito mais rápida e sem o estresse de um litígio judicial demorado.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Posso perder meu carro se estiver com parcelas atrasadas?</span>
+                <span class="faq-arrow">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>A partir do atraso, o banco pode iniciar procedimentos de busca e apreensão. Por isso o tempo é essencial: ao contratar nossa intermediação, notificamos o credor e iniciamos a negociação estratégica para proteger o seu patrimônio antes que ordens sejam cumpridas.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Meu nome ficará sujo ou com restrições após a quitação?</span>
+                <span class="faq-arrow">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Pelo contrário! O acordo firmado com o banco prevê expressamente a quitação definitiva da pendência e a baixa total das restrições nos órgãos de proteção ao crédito (SPC, Serasa e Boa Vista), permitindo que você recupere seu poder de compra.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL COM IMPACTO VISUAL -->
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="final-cta-box spotlight-card">
+            <div class="cta-logo-wrap">
+              <!-- Versão adicional do Logo do Diretório: Q metálico com Tagline -->
+              <svg class="cta-q-symbol" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="36" stroke="#0B1F3F" stroke-width="10" />
+                <path d="M48 58L62 72L90 40" stroke="#1CC7A6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h2 class="final-cta-title">
+              Pronto para Quitar Suas Dívidas com <span class="text-gradient">Inteligência?</span>
+            </h2>
+            <p class="final-cta-desc">
+              Não deixe os juros abusivos levarem o seu esforço. Clique no botão abaixo e fale agora mesmo com um dos nossos peritos pelo WhatsApp oficial.
+            </p>
+            <div class="final-cta-actions">
+              <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20da%20Quitta%20agora." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl magnetic-btn pulse-glow" id="final-cta-wpp">
+                <span class="wpp-icon-inline">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </span>
+                <span>Falar Agora pelo WhatsApp: (11) 94757-6346</span>
+              </a>
+            </div>
+            <div class="cta-badges">
+              <span>🔒 Dados 100% protegidos</span>
+              <span>⚡ Resposta imediata</span>
+              <span>💼 Atendimento em todo o Brasil</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER COM MARCA E CRÉDITOS -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <div class="footer-col-brand">
+          <div class="footer-brand-logo">
+            <svg class="logo-svg-sm" viewBox="0 0 240 64" fill="none">
+              <g class="logo-symbol">
+                <path class="q-ring" d="M38 12C24.745 12 14 22.745 14 36C14 49.255 24.745 60 38 60C43.5 60 48.6 58.1 52.7 55L45.5 47.8C43.3 49.2 40.7 50 38 50C30.268 50 24 43.732 24 36C24 28.268 30.268 22 38 22C45.732 22 52 28.268 52 36C52 38.6 51.3 41 50 43.1L57.5 50.6C60.3 46.5 62 41.5 62 36C62 22.745 51.255 12 38 12Z" fill="#0B1F3F"/>
+                <path class="q-check" d="M36 41L47 52L68 28" stroke="#1CC7A6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <text x="82" y="44" font-family="'Outfit', sans-serif" font-weight="800" font-size="36" fill="#0B1F3F">quitta</text>
+            </svg>
+          </div>
+          <p class="footer-tagline">Mais tranquilidade sempre. Soluções reais para novos começos.</p>
+          <div class="footer-contact-pill">
+            <span>WhatsApp Central: <strong>(11) 94757-6346</strong></span>
+          </div>
+        </div>
+
+        <div class="footer-col-nav">
+          <h4 class="footer-heading">Navegação</h4>
+          <ul class="footer-list">
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#servicos">Nossos Serviços</a></li>
+            <li><a href="#simulador">Calculadora de Parcelas</a></li>
+            <li><a href="#veiculos">Proteção Veicular</a></li>
+            <li><a href="#faq">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-nav">
+          <h4 class="footer-heading">Serviços</h4>
+          <ul class="footer-list">
+            <li><a href="#servicos">Empréstimos Pessoais</a></li>
+            <li><a href="#servicos">Cartão de Crédito</a></li>
+            <li><a href="#servicos">Financiamento de Veículos</a></li>
+            <li><a href="#servicos">Dívidas Empresariais</a></li>
+            <li><a href="#veiculos">Busca e Apreensão</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-legal">
+          <h4 class="footer-heading">Segurança Jurídica</h4>
+          <p class="legal-text">
+            A Quitta é uma empresa de assessoria e consultoria especializada em intermediação e negociação extrajudicial de dívidas civis e bancárias, fundamentada no Código de Defesa do Consumidor (Lei nº 8.078/1990) e na jurisprudência do Banco Central do Brasil.
+          </p>
+          <p class="copyright-text">
+            © 2026 Quitta Intermediações e Negociações. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE COM FÍSICA E MICRO-BOUNCE -->
+    <a href="https://wa.me/5511947576346?text=Ol%C3%A1%2C%20gostaria%20de%20um%20atendimento%20r%C3%A1pido." target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn magnetic-btn" id="floating-wpp" aria-label="Falar no WhatsApp">
+      <div class="wpp-ripple"></div>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="#ffffff"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span class="wpp-tooltip">Dúvidas? Fale conosco!</span>
+    </a>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
